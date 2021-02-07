@@ -9,6 +9,46 @@
  * via ids/classnames etc.
  *
  */
+//require("prismjs/themes/prism-okaidia.css");
+//require("prismjs/themes/prism-tomorrow.css");
+//require("./static/styles/prism-toolbar.min.css");
+//require("./static/styles/prism-tomorrow.min.css");
+//require("./static/styles/prism-line-numbers.min.css");
+/*require("prismjs/themes/prism-solarizedlight.css")
+require("prismjs/plugins/command-line/prism-command-line.css")
+const { withPrefix } = require("gatsby");
+
+
+const addScript = url => {
+    const script = document.createElement("script")
+    script.src = withPrefix(url)
+    script.async = true
+    document.body.appendChild(script)
+}
+
+const addCss = path => {
+    const css = document.createElement("style")
+    css.type = "text/css"
+    css.href = withPrefix(path)
+    css.rel = "stylesheet"
+    document.head.appendChild(css)
+}
+*/
+/*exports.onInitialClientRender = () => {
+    console.log("loaded !!!!!");
+    //window.onload = () => {
+    addScript("scripts/prism.min.js")
+    addScript("scripts/prism-toolbar.min.js")
+    addScript("scripts/prism-line-numbers.min.js")
+    addScript("scripts/prism-copy-to-clipboard.min.js")
+    addScript("scripts/prism-php.min.js")
+    addScript("scripts/loader.js")
+    //addCss("styles/prism-tomorrow.min.css")
+    //addCss("styles/prism-line-numbers.min.css")
+    //addCss("styles/prism-toolbar.min.css")
+    //}
+}
+*/
 var trustAllScripts = function () {
     var scriptNodes = document.querySelectorAll('.load-external-scripts script');
 

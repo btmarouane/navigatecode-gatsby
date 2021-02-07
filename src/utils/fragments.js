@@ -17,7 +17,6 @@ export const ghostTagFields = graphql`
         slug
         name
         visibility
-        feature_image
         description
         meta_title
         meta_description
@@ -48,10 +47,16 @@ export const ghostPostFields = graphql`
         slug
         featured
         feature_image
+        featureImage {
+            childImageSharp{
+              fluid{
+                ...GatsbyImageSharpFluid
+              }
+            }
+        }
         excerpt
         custom_excerpt
         visibility
-
         # Dates formatted
         created_at_pretty: created_at(formatString: "DD MMMM, YYYY")
         published_at_pretty: published_at(formatString: "DD MMMM, YYYY")
@@ -117,7 +122,6 @@ export const ghostPostFields = graphql`
         # Content
         plaintext
         html
-
         # Additional fields
         url
         canonical_url
@@ -230,6 +234,13 @@ export const ghostSettingsFields = graphql`
         logo
         icon
         cover_image
+        coverImage {
+            childImageSharp{
+              fluid{
+                src
+              }
+            }
+        }
         facebook
         twitter
         lang

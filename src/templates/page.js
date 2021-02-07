@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
-
 import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
 
@@ -14,6 +13,7 @@ import { MetaData } from '../components/common/meta'
 */
 const Page = ({ data, location }) => {
     const page = data.ghostPage
+    console.log(page);
 
     return (
         <>

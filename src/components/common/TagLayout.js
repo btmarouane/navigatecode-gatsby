@@ -1,15 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
-import { Link, StaticQuery, graphql, withPrefix } from 'gatsby'
+import { Link, StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
 import { Navigation } from '.'
 import config from '../../utils/siteConfig'
-
 // Styles
 import '../../styles/app.css'
-
 
 /**
 * Main layout component
@@ -19,7 +17,7 @@ import '../../styles/app.css'
 * styles, and meta data for each page.
 *
 */
-const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
+const DefaultLayout = ({ data, children, bodyClass, isHome, tag }) => {
     const site = data.allGhostSettings.edges[0].node
     const twitterUrl = site.twitter ? `https://twitter.com/${site.twitter.replace(/^@/, ``)}` : null
     const facebookUrl = site.facebook ? `https://www.facebook.com/${site.facebook.replace(/^\//, ``)}` : null
@@ -30,9 +28,6 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                 <html lang={site.lang} />
                 <style type="text/css">{`${site.codeinjection_styles}`}</style>
                 <body className={bodyClass} />
-                {/*<style href={withPrefix('styles/prism-toolbar.min.csss')} rel="stylesheet" type="text/css" />
-                <style href={withPrefix('styles/prism-tomorrow.min.css')} rel="stylesheet" type="text/css" />
-    <style href={withPrefix('styles/prism-line-numbers.min.css')} rel="stylesheet" type="text/css" />*/}
             </Helmet>
 
             <div className="viewport">
@@ -70,7 +65,14 @@ const DefaultLayout = ({ data, children, bodyClass, isHome }) => {
                             </nav>
                         </div>
                     </header>
+                    <div className="tag-header-background" style={{ backgroundImage: `url(${tag.feature_image})` }}>
+                        <div className="tag-header-content">
+                            <h1 className="tag-title">{tag.name}</h1>
+                            <h2 className="tag-description">{tag.description}</h2>
 
+                        </div>
+
+                    </div>
                     <main className="site-main">
                         {/* All the main content gets inserted here, index.js, post.js */}
                         {children}
@@ -108,21 +110,14 @@ DefaultLayout.propTypes = {
     }).isRequired,
 }
 
-const DefaultLayoutSettingsQuery = props => (
+const DefaultTagLayoutSettingsQuery = props => (
     <StaticQuery
         query={graphql`
-            query GhostSettings {
+            query {
                 allGhostSettings {
                     edges {
                         node {
                             ...GhostSettingsFields
-                        }
-                    }
-                }
-                file(relativePath: {eq: "ghost-icon.png"}) {
-                    childImageSharp {
-                        fixed(width: 30, height: 30) {
-                            ...GatsbyImageSharpFixed
                         }
                     }
                 }
@@ -139,4 +134,4 @@ const DefaultLayoutSettingsQuery = props => (
     />
 )
 
-export default DefaultLayoutSettingsQuery
+export default DefaultTagLayoutSettingsQuery

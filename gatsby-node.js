@@ -7,6 +7,7 @@ const { paginate } = require(`gatsby-awesome-pagination`)
  * posts, tags, pages and authors that we fetched from the Ghost site.
  */
 exports.createPages = async ({ graphql, actions }) => {
+    //deckDeckGoHighlightElement();
     const { createPage } = actions
 
     const result = await graphql(`
@@ -64,6 +65,8 @@ exports.createPages = async ({ graphql, actions }) => {
     const authorTemplate = path.resolve(`./src/templates/author.js`)
     const pageTemplate = path.resolve(`./src/templates/page.js`)
     const postTemplate = path.resolve(`./src/templates/post.js`)
+    const postBeta = path.resolve(`./src/templates/post-beta.js`)
+    const postDelta = path.resolve(`./src/templates/post-delta.js`)
 
     // Create tag pages
     tags.forEach(({ node }) => {
@@ -95,6 +98,7 @@ exports.createPages = async ({ graphql, actions }) => {
                     // Data passed to context is available
                     // in page queries as GraphQL variables.
                     slug: node.slug,
+                    feature_image: `${node.slug}.png`,
                     limit: postsPerPage,
                     skip: i * postsPerPage,
                     numberOfPages: numberOfPages,
@@ -176,7 +180,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
         createPage({
             path: node.url,
-            component: postTemplate,
+            component: postDelta,
             context: {
                 // Data passed to context is available
                 // in page queries as GraphQL variables.

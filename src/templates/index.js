@@ -13,7 +13,9 @@ import { MetaData } from '../components/common/meta'
 * in /utils/siteConfig.js under `postsPerPage`.
 *
 */
+
 const Index = ({ data, location, pageContext }) => {
+
     const posts = data.allGhostPost.edges
 
     return (

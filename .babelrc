@@ -1,0 +1,39 @@
+{
+    "presets": [
+        [
+            "babel-preset-gatsby"
+        ]
+    ],
+    "plugins": [
+        [
+            "prismjs",
+            {
+                "languages": [
+                    "javascript",
+                    "css",
+                    "markup",
+                    "json",
+                    "handlebars",
+                    "yaml",
+                    "java",
+                    "dart",
+                    "xml",
+                    "kotlin",
+                    "go",
+                    "bash",
+                    "docker",
+                    "dockerfile",
+                    "groovy",
+                    "php"
+                ],
+                "theme": "okaidia",
+                "css": true,
+                "plugins": [
+                    "line-numbers",
+                    "show-language",
+                    "copy-to-clipboard"
+                ]
+            }
+        ]
+    ]
+}

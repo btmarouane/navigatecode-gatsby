@@ -540,6 +540,7 @@ h6 {
     display: flex;
     flex-direction: column;
     font-family: var(--font-serif);
+    align-items: center;
 }
 
 .post-full-content {
@@ -547,6 +548,183 @@ h6 {
     margin: 0 auto;
     background: #fff;
 }
+
+.footnotes, .post-full-comments, .post-full-content blockquote, .post-full-content dl, .post-full-content h1, .post-full-content h2, .post-full-content h3, .post-full-content h4, .post-full-content h5, .post-full-content h6, .post-full-content ol, .post-full-content p, .post-full-content pre {
+    margin: 0 0 1.5em;
+    min-width: 100%;
+
+}
+
+
+
+.post-full-byline{
+    display: flex;
+    justify-content: space-between;
+    margin: 1px 0 50px;
+    padding-top: 15px;
+    border-bottom: 1px solid #e3e9ed;
+}
+
+.post-full-byline-content {
+    flex-grow: 1;
+    display: flex;
+    align-items: flex-start;
+}
+
+.author-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 0 0 4px;
+    padding: 0;
+    list-style: none;
+}
+
+.author-list-item {
+    position: relative;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*.author-card {
+    display: block;
+    overflow: hidden;
+    margin: 0 -4px;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #fff;
+    border-radius: 100%;
+    transition: all .5s cubic-bezier(.4,.01,.165,.99) .7s;
+position: absolute;
+bottom: 130%;
+left: 50%;
+z-index: 600;
+display: flex;
+justify-content: space-between;
+margin-left: -200px;
+width: 400px;
+font-size: 1.4rem;
+line-height: 1.5em;
+background: #fff;
+border-radius: 3px;
+box-shadow: 0 12px 26px rgba(39,44,49,.08),1px 3px 8px rgba(39,44,49,.06);
+opacity: 0;
+transition: all .35s cubic-bezier(.4,.01,.165,.99);
+transform: scale(.98) translateY(15px);
+pointer-events: none;
+padding: 20px 20px 22px;
+
+}*/
+.author-card {
+    padding: 20px 20px 22px;
+}
+
+.author-list-item .author-card {
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    z-index: 600;
+    display: flex;
+    justify-content: space-between;
+    margin-left: -200px;
+    width: 400px;
+    font-size: 1.4rem;
+    line-height: 1.5em;
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 0 12px 26px rgba(39,44,49,.08),1px 3px 8px rgba(39,44,49,.06);
+    opacity: 0;
+    transition: all .35s cubic-bezier(.4,.01,.165,.99);
+    transform: scale(.98) translateY(15px);
+    pointer-events: none;
+}
+.author-list-item .author-card::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    display: block;
+    margin-left: -8px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid #fff;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+    /*transition-duration: 500ms;*/
+}
+
+.author-card .author-profile-image{
+    
+    flex: 0 0 60px;
+    margin: 0;
+    width: 60px;
+    height: 60px;
+    border: none;
+    
+    border-radius: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    padding: 0;
+    
+}
+.author-card .author-info h2{
+    margin: 8px 0 0;
+    font-size: 1.6rem;
+}
+
+.author-card.hovered {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    pointer-events: auto;
+    
+}
+
+.author-info {
+    flex: 1 1 auto;
+    padding: 0 0 0 20px;
+}
+
+.author-avatar {
+    display: block;
+    overflow: hidden;
+    margin: 0 -4px;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #fff;
+    border-radius: 100%;
+    transition: all .5s cubic-bezier(.4,.01,.165,.99) .7s;
+}
+
+.post-full-byline-meta {
+    margin: 2px 10px 0;
+    color: #92a3ab;
+    font-size: 1.2rem;
+    line-height: 1.2em;
+    letter-spacing: .2px;
+    text-transform: uppercase;
+}
+.post-full-byline-meta h4 {
+    margin: 0 0 3px;
+    font-size: 1.3rem;
+    line-height: 1.4em;
+    font-weight: 500;
+}
+
+
+.bull {
+    display: inline-block;
+    margin: 0 4px;
+    opacity: .6;
+}
+
+
+
+
+
+
+
+
+
 
 .post-feature-image img {
     margin: 0 0 3vw;
@@ -647,7 +825,7 @@ h6 {
     font-weight: 700;
 }
 
-.content-body pre {
+/*.content-body pre {
     margin: 0.4em 0 1.8em;
     font-size: 1.6rem;
     line-height: 1.4em;
@@ -656,7 +834,7 @@ h6 {
     background: var(--color-base);
     color: #fff;
     border-radius: 12px;
-}
+}*/
 
 /* Header
 /* ---------------------------------------------------------- */
@@ -675,6 +853,7 @@ h6 {
     padding: 5px 10px;
     color: #fff;
     opacity: 0.7;
+    font-size: large;
 }
 
 .site-nav-item:hover {
@@ -688,7 +867,7 @@ h6 {
 }
 
 .site-logo {
-    height: 25px;
+    height: 70px;
 }
 
 .site-mast {
@@ -734,6 +913,10 @@ h6 {
     align-items: center;
     justify-content: space-between;
     margin: 15px 0 0 0;
+}
+
+.site-nav-pages{
+    margin-top: 50px;
 }
 
 .site-nav-left {
@@ -817,6 +1000,10 @@ h6 {
     background: var(--color-secondary) no-repeat center center;
     background-size: cover;
 }
+.post-card-image:hover{
+    opacity: 0.8;
+    transition-duration: 500ms;
+}
 
 .post-card-footer {
     display: flex;
@@ -889,6 +1076,65 @@ h6 {
 }
 
 
+.tag-header-background::after {
+    bottom: auto;
+    height: 140px;
+    background: linear-gradient(rgba(0,0,0,.15),transparent);
+}
+.tag-header-background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+    display: block;
+    background: rgba(0,0,0,.6);
+    bottom: 0;
+}
+.tag-header-background {
+    position: relative;
+    /*margin-top: 64px;*/
+    padding-bottom: 12px;
+    background: #0a0b0c no-repeat 50%;
+        background-image: none;
+    background-size: cover;
+    padding: 0 5vw;
+}
+.tag-header-content {
+    position: relative;
+    align-items: stretch;
+    padding: 12vw 0 20px;
+    min-height: 200px;
+    max-height: 600px;
+    z-index: 100;
+display: flex;
+flex-direction: column;
+justify-content: center;
+margin: 0 auto;
+max-width: 1040px;
+width: 100%;
+}
+
+.tag-title {
+    z-index: 10;
+    margin: 0 0 0 -2px;
+    padding: 0;
+    font-size: 5rem;
+    line-height: 1em;
+    font-weight: 600;
+    color: #fff;
+}
+.tag-description {
+    z-index: 10;
+    margin: 0;
+    padding: 5px 0;
+    font-size: 2.1rem;
+    line-height: 1.4em;
+    font-weight: 400;
+    opacity: .8;
+    color: #fff;
+}
 /* Author Archives
 /* ---------------------------------------------------------- */
 
@@ -1160,3 +1406,8 @@ h6 {
   .kg-image-card.kg-width-wide + .kg-image-card.kg-width-wide {
     margin: -2.25em 0 3em;
   }
+  pre[class*=language-] {
+    margin: 1.75em 0;
+    font-size: 1.45rem !important;
+    background: #111;
+}

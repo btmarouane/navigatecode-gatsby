@@ -60,6 +60,22 @@ module.exports = {
         `gatsby-plugin-sharp`,
         `gatsby-transformer-sharp`,
         {
+            resolve: `gatsby-plugin-remote-images`,
+            options: {
+                nodeType: 'GhostPost',
+                imagePath: 'feature_image',
+                name: 'featureImage'
+            },
+        },
+        {
+            resolve: `gatsby-plugin-remote-images`,
+            options: {
+                nodeType: 'GhostSettings',
+                imagePath: 'cover_image',
+                name: 'coverImage'
+            }
+        },
+        {
             resolve: `gatsby-source-ghost`,
             options:
                 process.env.NODE_ENV === `development`
